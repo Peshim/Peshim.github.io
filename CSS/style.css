@@ -1,0 +1,157 @@
+/* ============ Variáveis ============ */
+:root {
+  --bg: #12101c;
+  --card: #1c1930;
+  --item: #15122a;
+  --borda: #2f2a4d;
+  --texto: #ece9f7;
+  --suave: #a6a0c4;
+  --destaque: #7cf5c4;
+  --destaque2: #ff7ac6;
+}
+
+/* ============ Base ============ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--destaque);
+  text-decoration: none;
+  word-break: break-all; /* evita links longos estourarem a tela no celular */
+}
+a:hover { text-decoration: underline; }
+
+/* ============ Cabeçalho ============ */
+header {
+  text-align: center;
+  padding: 56px 20px 32px;
+  background: linear-gradient(135deg, #1d1840, #12101c);
+  border-bottom: 2px solid var(--borda);
+}
+header h1 {
+  font-size: 2.2rem;
+  color: var(--destaque);
+  letter-spacing: 1px;
+}
+header p {
+  color: var(--suave);
+  margin-top: 6px;
+}
+
+/* ============ Layout geral ============ */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: var(--destaque2);
+  margin-bottom: 14px;
+}
+h2::before {
+  content: "▸ ";
+  color: var(--destaque);
+}
+
+/* ============ Informações pessoais ============ */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.info-item {
+  background: var(--item);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.info-item span {
+  display: block; /* o rótulo fica em cima do valor */
+  font-size: .78rem;
+  color: var(--suave);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+/* ============ Biografia ============ */
+.bio p { margin-bottom: 12px; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+.tag {
+  background: var(--item);
+  border: 1px solid var(--destaque);
+  color: var(--destaque);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+}
+
+/* ============ Contatos ============ */
+.contatos {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.contatos li,
+#repositorios li {
+  background: var(--item);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+.contatos .rotulo {
+  color: var(--suave);
+  min-width: 90px;
+}
+
+/* ============ Repositórios ============ */
+#repositorios li {
+  list-style: none;
+  margin-top: 10px;
+  transition: transform .15s, border-color .15s;
+}
+#repositorios li:hover {
+  transform: translateY(-2px);
+  border-color: var(--destaque);
+}
+.nrepo {
+  color: var(--suave);
+}
+
+/* Container reservado para repositórios adicionados por JS (vazio por enquanto) */
+.repos:empty { display: none; }
+.repos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+/* ============ Celular ============ */
+@media (max-width: 480px) {
+  header h1 { font-size: 1.7rem; }
+  section { padding: 18px; }
+}
